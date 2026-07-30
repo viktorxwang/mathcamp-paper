@@ -357,7 +357,7 @@ $$\mathcal{H}^{s}(A) = \sum_{i=1}^{N} \mathcal{H}^{s}(S_i(A))$$
 We substitute the scaling formula:
 $$\mathcal{H}^{s}(A) = \sum_{i=1}^{N}r_i^{s} \mathcal{H}^{s}(A)$$
 
-We factor out the common measure $\mathcal{H}^{s}(A)$. We know that the Hausdorff dimension at the critical exponent is $0 < \mathcal{H}^{s}(A) < \infty$ by definition. Therefore, we divide both sides: $$1 = \sum_{i=1}^{N} r_1^{s}$$
+We factor out the common measure $\mathcal{H}^{s}(A)$. We know that the Hausdorff dimension at the critical exponent is $0 < \mathcal{H}^{s}(A) < \infty$ by definition. Therefore, we divide both sides: $$1 = \sum_{i=1}^{N} r_i^{s}$$
 which is the statement of Moran's equation.
 
 \end{proof}
@@ -365,7 +365,7 @@ which is the statement of Moran's equation.
 \subsubsection{Uniform Moran's Equation}
 
 
-Note that when all copies share the same contraction ratio $r_1=r_2=\cdots=r_N=r$, the sum collapses to $N$ identical terms, giving the simplified (uniform) form of Moran's equation: $$\sum_{r=1}^{N} r_i^s = Nr^s = 1$$
+Note that when all copies share the same contraction ratio $r_1=r_2=\cdots=r_N=r$, the sum collapses to $N$ identical terms, giving the simplified (uniform) form of Moran's equation: $$\sum_{i=1}^{N} r_i^s = Nr^s = 1$$
 
 We solve for $s$ to find $$s = \frac{\log N}{\log (1/r)}$$
 
@@ -446,7 +446,7 @@ The Hausdorff dimension is a useful tool for measuring the complexity of fractal
 
 A grid of equally sized squares is placed over the object. We then count how many squares contain at least part of the object. This process is repeated using smaller and smaller squares. Objects with more complex boundaries require many more small boxes to cover them than simple geometric shapes. The rate at which the number of required boxes increases provides an estimate of the fractal dimension. Box counting measures this growth rate and turns it into the box-counting dimension. \\
 
-Cover the object with a grid of boxes of side length $\varepsilon$. We count $N(\varepsilon)$, the number of boxes that intersect the object. We know that $N(\varepsilon)$ grows as a power law of $\varepsilon$, so we write $N(\varepsilon) \approx C(\varepsilon)^{-s}$ where $s$ is the box-counting dimension and $C$ is some constant. Taking logarithms of both sides creates an equation $\log N(\varepsilon) \approx D \left( \frac{1}{\varepsilon} \right) + \log C$.
+Cover the object with a grid of boxes of side length $\varepsilon$. We count $N(\varepsilon)$, the number of boxes that intersect the object. We know that $N(\varepsilon)$ grows as a power law of $\varepsilon$, so we write $N(\varepsilon) \approx C(\varepsilon)^{-s}$ where $s$ is the box-counting dimension and $C$ is some constant. Taking logarithms of both sides creates an equation $\log N(\varepsilon) \approx s \left( \frac{1}{\varepsilon} \right) + \log C$.
 
 \begin{definition}[Box-Counting]
     Let $N(\varepsilon)$ be the number of boxes that intersect the object. Then $s$ is formally defined as the limit
@@ -522,7 +522,7 @@ Box-counting methods have already been used extensively to study the fractal dim
 
 \subsection{Richardson's Method}
 
-We will use R to measure the length of a coastline with rulers of different length. First, we get a high spatial resolution coastline for the United Kingdom from the GADM database.
+We will use R to measure the length of a coastline with rulers of different length. First, we get a high spatial resolution coastline for China from the GADM database.
 
 \begin{verbatim}
 library(terra)
