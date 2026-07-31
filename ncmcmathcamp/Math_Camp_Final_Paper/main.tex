@@ -220,12 +220,69 @@ which is equivalent to the previous definition. We will use $\mathcal{H}^{s} (\c
 \label{fig:haus}
 \end{figure}
 
+Before defining the Hausdorff dimension, we must justify that it is actually well-defined: that is, that the map $s \mapsto \mathcal{H}^s(A)$ has the ``jump'' structure pictured in Figure~\ref{fig:haus}, jumping exactly once from $+\infty$ down to $0$. The following proposition shows that this map can never take a nonzero, finite value at two different exponents, which is precisely what forces the graph to consist of a (possibly empty) stretch of $+\infty$, a single critical exponent, and then a stretch of $0$.
+
+\begin{proposition}[Proving the Critical Exponent exists]\label{prop:critical-exponent}
+Let $A \subseteq \mathbb{R}^n$. Then:
+\begin{enumerate}
+    \item If there exists $s_1 \ge 0$ with $\mathcal{H}^{s_1}(A) < \infty$, then $\mathcal{H}^{s_2}(A) = 0$ for every $s_2 > s_1$.
+    \item If there exists $s_1 \ge 0$ with $\mathcal{H}^{s_1}(A) > 0$, then $\mathcal{H}^{s_2}(A) = +\infty$ for every $s_2 < s_1$.
+\end{enumerate}
+After we have these two bounds, it follows that,
+
+$$\inf \{ s \geq 0 : \mathcal{H}^{s}(A)=0 \} = \sup \{ s \geq 0 : \mathcal{H}^{s}(A) = + \infty \}$$
+so this common value, the location of the jump in Figure~\ref{fig:haus}, is a unique number that exists.
+\end{proposition}
+
+\begin{proof}
+\textbf{(1)} Suppose $\mathcal{H}^{s_1}(A) < \infty$ for some $s_1 \ge 0$, and let $s_2 > s_1$, so $s_2 - s_1 > 0$. Fix $\delta > 0$ and let $\{U_i\}_{i=1}^{\infty}$ be any $\delta$-cover of $A$. Since $\operatorname{diam}(U_i) \le \delta$ for every $i$, we may split off the extra exponent and bound it using $\delta$:
+\[
+\sum_{i=1}^{\infty} \big(\operatorname{diam} U_i\big)^{s_2}
+= \sum_{i=1}^{\infty} \big(\operatorname{diam} U_i\big)^{s_2-s_1}\big(\operatorname{diam} U_i\big)^{s_1}
+\le \delta^{\,s_2-s_1} \sum_{i=1}^{\infty} \big(\operatorname{diam} U_i\big)^{s_1}.
+\]
+Since the Hausdorff measure involves taking the infimum, we take the infimum over all $\delta$-covers $\{U_i\}$ of $A$ on both sides to get
+\[
+\mathcal{H}_\delta^{s_2}(A) \le \delta^{\,s_2-s_1}\, \mathcal{H}_\delta^{s_1}(A).
+\]
+Because $\mathcal{H}_\delta^{s_1}(A)$ is non-decreasing as $\delta \to 0^+$ (shrinking $\delta$ only removes larger diameter covers from the infimum), we have $\mathcal{H}_\delta^{s_1}(A) \le \mathcal{H}^{s_1}(A)$ for every $\delta > 0$, and so
+\[
+0 \le \mathcal{H}_\delta^{s_2}(A) \le \delta^{\,s_2-s_1}\,\mathcal{H}^{s_1}(A).
+\]
+Since $s_2 - s_1 > 0$ and $\mathcal{H}^{s_1}(A) < \infty$ is a fixed finite constant, the right-hand side tends to $0$ as $\delta \to 0^+$. From the limit,
+\[
+\mathcal{H}^{s_2}(A) = \lim_{\delta \to 0^+} \mathcal{H}_\delta^{s_2}(A) = 0.
+\]
+
+\vspace{0.5em}
+
+\textbf{(2)} Suppose $\mathcal{H}^{s_1}(A) > 0$ for some $s_1 \ge 0$, and let $s_2 < s_1$. We will use contradiction. For the sake of contradiction, suppose $\mathcal{H}^{s_2}(A) < \infty$. Since $s_1 > s_2$, part (i) applied with the roles of the two exponents relabeled (taking the finite-measure exponent to be $s_2$ and the larger exponent to be $s_1$) gives $\mathcal{H}^{s_1}(A) = 0$, contradicting $\mathcal{H}^{s_1}(A) > 0$. Hence $\mathcal{H}^{s_2}(A)$ cannot be finite, and since $\mathcal{H}^{s_2}(A) \geq 0$, we conclude that the Hausdorff measure is the positive infinity $\mathcal{H}^{s_2}(A) = +\infty$.
+
+\vspace{0.5em}
+
+Let $S_0$ be the collection of exponents $s$ at which $\mathcal{H}^s(A) = 0$, and let $S_\infty$ be the collection of exponents $s$ at which $\mathcal{H}^s(A) = +\infty$. Part (1) says that as soon as the measure is finite at some exponent, it must be $0$ at every larger exponent. So every exponent above a finite point automatically belongs to $S_0$. Part (2) says that as soon as the measure is positive at some exponent, it must have been $+\infty$ at every smaller exponent. So every exponent below a positive point automatically belongs to $S_\infty$.
+ 
+Putting these two facts together, all the small exponents get swept into $S_\infty$ and all the large exponents get swept into $S_0$, with nothing left over in between. In particular, the largest exponent where the measure is still infinite can never exceed the smallest exponent where the measure has dropped to $0$:
+$$
+\sup\{s \ge 0 : \mathcal{H}^s(A) = +\infty\} \le \inf\{s \ge 0 : \mathcal{H}^s(A) = 0\}.
+$$
+These two numbers cannot actually be different. If they were, then any exponent $s$ sitting strictly between them would have to satisfy $\mathcal{H}^s(A) \in (0,\infty)$, which is a measure that is both positive and finite at once. But then applying (1) and (2) directly to this exponent $s$ shows that every larger exponent lands in $S_0$ and every smaller exponent lands in $S_\infty$, meaning $s$ itself is the largest infinite exponent and the smallest zero exponent, so there was no gap between them after all. This is just the equality case of the $\leq$. Hence
+$$
+\sup\{s \ge 0 : \mathcal{H}^s(A) = +\infty\} = \inf\{s \ge 0 : \mathcal{H}^s(A) = 0\},
+$$
+which confirms that the jump from $+\infty$ down to $0$ happens at one single exponent.
+\end{proof}
+
+\begin{remark}
+Proposition~\ref{prop:critical-exponent} explains the behavior of the picture in Figure~\ref{fig:haus}. The line starts at $\mathcal{H}^{s}(A) = +\infty$, then drops to a finite value $s>0$ at the critical exponent. Hausdorff measures greater than the critical exponent return a value of $\mathcal{H}^{s}(A)=0$.
+\end{remark}
+
 \begin{definition}[Hausdorff Dimension]
 The Hausdorff dimension of a set $A$ can be defined by
-\[
+$$\boxed{
 \dim_{\mathcal{H}}(A) = \inf\{s \ge 0 : \mathcal{H}^s(A) = 0\} = \sup\{s \ge 0 : \mathcal{H}^s(A) = +\infty\}.
-\]
-The behavior of the Hausdorff dimension is visually depicted in Figure~\ref{fig:haus}.
+}$$
+By Proposition~\ref{prop:critical-exponent}, these two quantities always coincide, so $\dim_{\mathcal{H}}(A)$ is well-defined for every $A \subseteq \mathbb{R}^n$. The behavior of the Hausdorff dimension is visually depicted in Figure~\ref{fig:haus}.
 \end{definition}
 
 
@@ -446,7 +503,7 @@ The Hausdorff dimension is a useful tool for measuring the complexity of fractal
 
 A grid of equally sized squares is placed over the object. We then count how many squares contain at least part of the object. This process is repeated using smaller and smaller squares. Objects with more complex boundaries require many more small boxes to cover them than simple geometric shapes. The rate at which the number of required boxes increases provides an estimate of the fractal dimension. Box counting measures this growth rate and turns it into the box-counting dimension. \\
 
-Cover the object with a grid of boxes of side length $\varepsilon$. We count $N(\varepsilon)$, the number of boxes that intersect the object. We know that $N(\varepsilon)$ grows as a power law of $\varepsilon$, so we write $N(\varepsilon) \approx C(\varepsilon)^{-s}$ where $s$ is the box-counting dimension and $C$ is some constant. Taking logarithms of both sides creates an equation $\log N(\varepsilon) \approx s \left( \frac{1}{\varepsilon} \right) + \log C$.
+Cover the object with a grid of boxes of side length $\varepsilon$. We count $N(\varepsilon)$, the number of boxes that intersect the object. We know that $N(\varepsilon)$ grows as a power law of $\varepsilon$, so we write $N(\varepsilon) \approx C(\varepsilon)^{-s}$ where $s$ is the box-counting dimension and $C$ is some constant. Taking logarithms of both sides creates an equation $\log N(\varepsilon) \approx s \log \left( \frac{1}{\varepsilon} \right) + \log C$.
 
 \begin{definition}[Box-Counting]
     Let $N(\varepsilon)$ be the number of boxes that intersect the object. Then $s$ is formally defined as the limit
