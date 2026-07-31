@@ -139,7 +139,7 @@ The three axioms above capture the basic properties that any reasonable notion o
 
 \subsection{Gauge Functions}
 
-Consider the rectangle with length $\ell$ and width $w$. If we measure this shape with length ($s=1$), there are infinitely many vertical and horizontal line segments in the square. If we measure this shape with area ($s=2$), we find its area as $0<\ell w < \infty$. If we measure this shape with volume ($s=3$), we find $0$, since an area contains no volume. We want to find the $s$ such that measuring the shape with $s$ does not give $0$ nor $\infty$ as the "mass". The "mass" is heavily dependent on the weight that each subset of the covering contributes, which can be measured by the gauge function.
+Consider the rectangle with length $\ell$ and width $w$. If we measure this shape with the length measure ($s=1$), there are infinitely many vertical and horizontal line segments in the rectangle. If we measure this shape with area ($s=2$), we find its area as $0<\ell w < \infty$. If we measure this shape with volume ($s=3$), we find $0$, since an area contains no volume. We want to find the $s$ such that measuring the shape with $s$ does not give $0$ nor $\infty$ as the "mass". The "mass" is heavily dependent on the weight that each subset of the covering contributes, which can be measured by the gauge function.
 
 \begin{definition}[Gauge Function]
 A \textit{gauge function} is a function
@@ -201,9 +201,9 @@ This definition builds up the notion of a $\delta$-cover in several steps.
 
 Intuitively, $H_\varphi^\delta(A)$ is our best attempt at measuring the ``$\varphi$-size'' of $A$, using a bound of size $\delta$. We are forbidden from using pieces coarser, or with a larger diameter, than $\delta$, and among all fine-enough covers we take the most efficient (smallest-total) one. Shrinking $\delta$ only removes coarser covers from consideration, so $H_\varphi^\delta(A)$ can only increase (or stay the same) as $\delta$ decreases. This monotonicity is what allows one to later define the Hausdorff measure. In fact, for $\varphi(t) = t^s$, $\quad H_\varphi(\cdot) = H_s (\cdot)$ is called the $s$-dimensional Hausdorff measure. \\
 
-Several sources also provide a Hausdorff measure for generic sets with an implied gauge function \cite{michelucci2025hausdorff, ouyaaznechba2021hausdorff}. Let $F \subseteq \mathbb{R}^n$, $s > 0$ with $s \in \mathbb{R}$. For any $\delta > 0$ we define
+Several sources also provide a Hausdorff measure for generic sets with an implied gauge function \cite{michelucci2025hausdorff, ouyaaznechba2021hausdorff}. Let $A \subseteq \mathbb{R}^n$, $s > 0$ with $s \in \mathbb{R}$. For any $\delta > 0$ we define
 \[
-\mathcal{H}_\delta^s(A) = \inf\left\{ \sum_{i=1}^{\infty} |U_i|^s \;\middle|\; U_i \text{ is a } \delta\text{-cover of } F \right\}
+\mathcal{H}_\delta^s(A) = \inf\left\{ \sum_{i=1}^{\infty} |U_i|^s \;\middle|\; U_i \text{ is a } \delta\text{-cover of } A \right\}
 \]
 
 Note that this alternative definition without the gauge function allows us to write the $s$-dimensional Hausdorff measure as a limit:
@@ -622,7 +622,7 @@ to get $s \approx 1.073$.
 
 \section{Acknowledgments}
 
-I would like to thank Mr. Owen Reich for his extremely helpful advice on how to write a good math paper. I would like to thank Mr. William Bray for supporting my math jokes even when some of them didn't quite land. I would like to thank Mr. Corwin de Marchi and Mr. Ryan Wu for their engaging storytelling in the many Clocktower games. Finally, I would like to thank NCMC for being my first math camp and an amazing introduction to higher-level mathematics.
+I would like to thank Mr. Owen Reich for his extremely helpful advice on how to write a good math paper. I would like to thank Mr. William Bray for supporting my math jokes even when some of them didn't quite land. I would like to thank Mr. Corwin de Marchi and Mr. Ryan Wu for their engaging storytelling in the many Clocktower games. I would like to thank Prof. Hubert Bray and Prof. Clark Bray for their mathematical insights and helping me understand the lectures, and Prof. Clark especially for his invaluable advice for SUMaC. Finally, I would like to thank NCMC for being my first math camp and an amazing introduction to higher-level mathematics.
 
 
 \bibliographystyle{alpha}
